@@ -82,6 +82,20 @@ def check(dict1, dict2):
             return False
 
 def get_input():
+    # test for zero input
+    non_zero = True
+    while non_zero == True:
+        key = str(easygui.enterbox("Enter the name of the comic: "))
+        try:
+            new_start_date = int(easygui.enterbox("Enter start date: "))
+            if new_start_date > 1979:
+                raise Exception(f"{key} isn't vintage! Enter a different date!")
+        except:
+            easygui.msgbox("You did something wrong!")
+        new_latest_issue = int(easygui.enterbox())
+        new_vol_num = int(easygui.enterbox())
+        new_value = int(easygui.enterbox())
+    
     
 
 def add(dictionary):
@@ -105,7 +119,8 @@ def add(dictionary):
             #menu = easygui.enterbox('Item 3 format(name, price): ')
             #x = menu.split()
             #final[f"{menuname}"][x[0]] = float(x[1])
-
+            
+            
 
             happy = easygui.enterbox('Are you happy with the final menu (y, n): ')
             if happy == 'y':
@@ -133,4 +148,5 @@ def delete(dictionary, comic):
     easygui.buttonbox('DELETE: ', choices=[])
 
 def output():
+    # output to shell and easygui
     pass
